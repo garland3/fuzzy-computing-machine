@@ -1,3 +1,7 @@
+# code evolution
+
+* can code automatically break out of some box over time?
+
 ```bash
 conda activate codeevolution
 
