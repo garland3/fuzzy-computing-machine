@@ -1,0 +1,28 @@
+version: "3"
+services:
+  api:
+    # build: ./api
+    image: evolutionhost:latest
+    build: 
+      context: ./api
+    ports:
+      - 5000:5000
+
+  code:
+    image: evolutioncode:latest
+    build: 
+      context: ./ga_code
+    # command: python map_elites_ga.py
+    volumes:
+      - ./map_elites_ga:/app
+    depends_on:
+      - api
+
+# start the containers by running
+# --build will force a rebuild of the images
+#  sudo docker-compose up -f docker-compose.yaml --build
+
+
+
+# make sure that docker-compose is installed
+# sudo apt install docker-compose
